@@ -6,8 +6,7 @@ A sample of clean architecture with bloc based on [Flutter Clean Architecture - 
 <img src="images/flutter_clean.png" align="center" width=35%>
 </a> 
 <br><br>
-
-    <br><br>
+<br><br>
   <a href="#">
     <img alt="version" src="https://img.shields.io/badge/Version-v1.0-red.svg" />
   </a>
