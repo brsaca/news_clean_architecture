@@ -9,8 +9,8 @@ import 'package:news_clean_architecture/features/daily_news/domain/repository/ar
 
 class ArticleRepositoryImpl implements ArticleRepository {
   final NewsApiService _newsApiService;
-  ArticleRepositoryImpl(this._newsApiService)
-  
+  ArticleRepositoryImpl(this._newsApiService);
+
   @override
   Future<DataState<List<ArticleModel>>> getNewsArticles() async {
     try {
@@ -19,7 +19,7 @@ class ArticleRepositoryImpl implements ArticleRepository {
         apiKey: newsAPIKey,
         country: countryQuery,
         category: categoryQuery,
-      ); 
+      );
 
       // Aquí verificas el código de estado de la respuesta HTTP
       if (httpResponse.response.statusCode == HttpStatus.ok) {
@@ -28,15 +28,11 @@ class ArticleRepositoryImpl implements ArticleRepository {
       } else {
         // Si la respuesta no es exitosa, devuelves un estado de fallo con la excepción
         return DataFailed(
-          DioException(
-            requestOptions: httpResponse.response.requestOptions
-          )
-        );
+            DioException(requestOptions: httpResponse.response.requestOptions));
       }
     } on DioException catch (e) {
       // Capturas y manejas las excepciones relacionadas con Dio (librería HTTP)
       return DataFailed(e);
-    } 
+    }
   }
-
 }
